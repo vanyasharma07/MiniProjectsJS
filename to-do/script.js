@@ -5,7 +5,7 @@ const todoList = document.getElementById("todo-list");
 let tasks =[];
 
 addTaskButton.addEventListener('click', () => {
-    const taskText = todoInput.ariaValueMax.trim()
+    const taskText = todoInput.value.trim()
     if(taskText === "") return;
 
     const newTask = {
@@ -14,5 +14,12 @@ addTaskButton.addEventListener('click', () => {
         completed: false
     };
     tasks.push(newTask);
+    saveTasks();
     todoInput.value = "";
-})
+    console.log(tasks);
+});
+//now we have created an array where we can add tasks
+
+function saveTasks(){
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
