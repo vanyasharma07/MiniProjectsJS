@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function displayWeatherData(eatherData){};
 
   function showError () {
-    
+    waetherInfo.classList.add('hidden');
+    errorMessage.classList.remove('hidden');
   }
 });
