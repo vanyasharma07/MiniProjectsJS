@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const cityInput = document.getElementById("city-input");
   const getWeatherBtn = document.getElementById("get-weather-btn");
-  const waetherInfo = document.getElementById("weather-info");
+  const weatherInfo = document.getElementById("weather-info");
   const cityNameDisplay = document.getElementById("city-name");
   const temperatureDisplay = document.getElementById("temperature");
   const descriptionDisplay = document.getElementById("description");
@@ -9,18 +9,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const API_KEY = "05fd89eb0192c0a21ea3e82b4ad30737";
 
-  getWeatherBtn.addEventListener('click', () => {
+  getWeatherBtn.addEventListener('click', async() => {
     const city = cityInput.ariaValueMax.trim();
     if(!city) return;
 
+    try {
+      const weatherData = await fetchWeatherData(city);
+      displayWeatherData(weatherData);
+    } catch (error) {
+      showError();
+    }
+
   });
 
-  function fetchWeatherData(city){};
+  async function fetchWeatherData(city){};
 
-  function displayWeatherData(eatherData){};
+  function displayWeatherData(weatherData){};
 
   function showError () {
-    waetherInfo.classList.add('hidden');
+    weatherInfo.classList.add('hidden');
     errorMessage.classList.remove('hidden');
   }
 });
