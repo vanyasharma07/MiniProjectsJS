@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const descriptionDisplay = document.getElementById("description");
   const errorMessage = document.getElementById("error-message");
 
-  const API_KEY = "05fd89eb0192c0a21ea3e82b4ad30737";
+  const API_KEY = "52ad7d16dd73f68d38d7efacea5f2c4a";
 
   getWeatherBtn.addEventListener('click', async() => {
-    const city = cityInput.ariaValueMax.trim();
+    const city = cityInput.value.trim();
     if(!city) return;
 
     try {
@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //defining helper functions
   async function fetchWeatherData(city){
-    const url = `https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+    console.log("Final API URL:", url);
     const response = await fetch(url);
     console.log(typeof response);
     console.log("RESPONSE", response);
