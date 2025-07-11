@@ -38,19 +38,18 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function displayWeatherData(weatherData){
-    console.log(data);
-    const {name, main, weather} = data;
+    console.log(weatherData);
+    const {name, main, weather} = weatherData; 
     cityNameDisplay.textContent = name;
     errorMessage.classList.add("hidden"); 
-    temperatureDisplay.textContent = `Temperature : ${main.temp}`;
+    temperatureDisplay.textContent = `Temperature : ${main.temp}°C`;
     descriptionDisplay.textContent = `Weather : ${weather[0].description}`;          
-    //unlock the display
     weatherInfo.classList.remove("hidden");
-    
   };
+  
 
   function showError () {
-    weatherInfo.classList.remove('hidden');
-    errorMessage.classList.add('hidden');
+    weatherInfo.classList.add('hidden');
+    errorMessage.classList.remove('hidden');
   }
 });
