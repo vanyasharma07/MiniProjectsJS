@@ -41,6 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const productId = parseInt(e.target.getAttribute("data-id"));
             const product = products.find(p => p.id === productId)
             addToCart(product);
-        }
-    })
+        };
+    });
+
+    function addToCart (product) {
+        cart.push(product);
+        renderCart(cart);
+    };
+
+    function renderCart(){
+        
+    }
 });
