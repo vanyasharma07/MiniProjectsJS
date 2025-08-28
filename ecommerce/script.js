@@ -50,6 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function renderCart(){
-        
-    }
+        cartItems.innertext = "";
+        if (cart.length > 0){
+            cartItems.classList.add("hidden");
+            cartTotalMessage.classList.remove("hidden");
+        }
+        else {
+            cartItems.classList.remove("hidden");
+        };
+    };
 });
